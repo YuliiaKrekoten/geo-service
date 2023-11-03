@@ -1,3 +1,5 @@
+package netology.sender;
+
 import netology.sender.MessageSender;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -18,8 +20,8 @@ import static org.mockito.ArgumentMatchers.anyString;
 public class MessageSenderTest {
     @Test
     public void testSendRussianMessage() {
-      GeoService geoService = Mockito.mock(GeoService.class);
-      Mockito.when(geoService.byIp(anyString())).thenReturn(new Location("Moscow", Country.RUSSIA, "Lenina", 12345));
+        GeoService geoService = Mockito.mock(GeoService.class);
+        Mockito.when(geoService.byIp(anyString())).thenReturn(new Location("Moscow", Country.RUSSIA, "Lenina", 12345));
         // Создаем мок объект LocalizationService
         LocalizationService localizationService = Mockito.mock(LocalizationService.class);
         // Задаем поведение мок объекта: всегда возвращать русский текст
@@ -38,6 +40,7 @@ public class MessageSenderTest {
         // Проверяем, что результат соответствует ожидаемому русскому тексту
         Assertions.assertEquals("Привет", result);
     }
+
     @Test
     public void testSendEnglishMessage() {
         // Создаем мок объект GeoService
